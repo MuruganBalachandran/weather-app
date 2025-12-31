@@ -61,7 +61,7 @@ app.get("/weather", async (req, res) => {
     });
   }
 
-  const url = `http://api.weatherstack.com/current?access_key=253031a10d345f755fe80d27cfc95530&query=${encodeURIComponent(
+  const url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK_KEY}=${encodeURIComponent(
     address
   )}`;
 
@@ -138,7 +138,8 @@ app.get("*", (req, res) => {
 // endregion
 
 // region Start server
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
   console.log("Server is up on port 3000.");
 });
 // endregion
