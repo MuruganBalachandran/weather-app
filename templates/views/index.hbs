@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js" defer></script>
+</head>
+
+<body>
+    {{>header}}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Weather Forecast</h1>
+        <p>Get real-time weather updates for any city in the world.</p>
+    </section>
+
+    <main class="main-content full-width">
+
+        <!-- Weather Search -->
+        <section class="weather-section">
+            <h2>Check Weather</h2>
+            <p>Enter a location to get current weather information.</p>
+
+            <div class="weather-box">
+                <input
+                    type="text"
+                    id="city-input"
+                    placeholder="Enter city name"
+                />
+                <button id="get-weather">Get Weather</button>
+            </div>
+
+            <div id="weather-result" class="weather-card hidden"></div>
+            <p id="no-results" class="error-text"></p>
+        </section>
+
+    </main>
+
+    {{>footer}}
+</body>
+</html>
