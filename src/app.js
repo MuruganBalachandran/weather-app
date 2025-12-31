@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
@@ -61,9 +62,7 @@ app.get("/weather", async (req, res) => {
     });
   }
 
-  const url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK_KEY}=${encodeURIComponent(
-    address
-  )}`;
+const url = `http://api.weatherstack.com/current?access_key=3853ff07ba4eb6dbfb6b9ffc3f0a0106&query=${encodeURIComponent(address)}`;
 
   try {
     const fetchResponse = await fetch(url);
@@ -138,8 +137,7 @@ app.get("*", (req, res) => {
 // endregion
 
 // region Start server
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
+app.listen(3000, () => {
   console.log("Server is up on port 3000.");
 });
 // endregion
