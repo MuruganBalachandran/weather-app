@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require("path");
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const express = require("express");
@@ -63,12 +65,15 @@ app.get("/weather", async (req, res) => {
   }
 
 const url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK_KEY}&query=${encodeURIComponent(address)}`;
-
+console.log("Weather URL:", url);
   try {
     const fetchResponse = await fetch(url);
     const data = await fetchResponse?.json();
+    
+    console.log("API Response:", data);
 
-    if (data?.error) {
+    if (data.error) {
+      console.log("API Error:", data.error);
       return res.send({
         error: "Unable to find location. Try another search.",
       });
@@ -141,6 +146,3 @@ app.listen(3000, () => {
   console.log("Server is up on port 3000.");
 });
 // endregion
-
-
-url
