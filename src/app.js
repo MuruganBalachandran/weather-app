@@ -1,5 +1,5 @@
-require('dotenv').config();
 const path = require("path");
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const express = require("express");
 const hbs = require("hbs");
 
@@ -62,8 +62,8 @@ app.get("/weather", async (req, res) => {
     });
   }
 
-const url = `http://api.weatherstack.com/current?access_key=3853ff07ba4eb6dbfb6b9ffc3f0a0106&query=${encodeURIComponent(address)}`;
-
+const url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHERSTACK_KEY}&query=${encodeURIComponent(address)}`;
+console.log(url)
   try {
     const fetchResponse = await fetch(url);
     const data = await fetchResponse?.json();

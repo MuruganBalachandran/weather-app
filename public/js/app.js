@@ -54,23 +54,23 @@ const renderWeather = (data) => {
 
   weatherCard.innerHTML = `
         <div class="weather-header">
-            <img src="${weather.icon}" alt="${weather.description}">
-            <h3>${weather.description}</h3>
+            <img src="${weather?.icon}" alt="${weather?.description}">
+            <h3>${weather?.description}</h3>
         </div>
 
-        <div class="temp">${weather.temperature}°C</div>
+        <div class="temp">${weather?.temperature}°C</div>
         <div class="location">
-            ${location.name}, ${location.region}, ${location.country}<br>
-            <small>Local time: ${location.localtime}</small>
+            ${location?.name}, ${location?.region}, ${location?.country}<br>
+            <small>Local time: ${location?.localtime}</small>
         </div>
 
         <div class="weather-details">
-            <div>Feels like: ${weather.feelslike}°C</div>
-            <div>Humidity: ${weather.humidity}%</div>
-            <div>Wind: ${weather.windSpeed} km/h ${weather.windDir}</div>
-            <div>Visibility: ${weather.visibility} km</div>
-            <div>UV Index: ${weather.uvIndex}</div>
-            <div>${weather.isDay === "yes" ? "Day " : "Night "}</div>
+            <div>Feels like: ${weather?.feelslike}°C</div>
+            <div>Humidity: ${weather?.humidity}%</div>
+            <div>Wind: ${weather?.windSpeed} km/h ${weather?.windDir}</div>
+            <div>Visibility: ${weather?.visibility} km</div>
+            <div>UV Index: ${weather?.uvIndex}</div>
+            <div>${weather?.isDay === "yes" ? "Day " : "Night "}</div>
         </div>
     `;
 
